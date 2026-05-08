@@ -45,6 +45,8 @@ The app is prepared for Python hosting services that support WSGI apps and Procf
 - Start command: `gunicorn wsgi:app`
 - Python runtime: `python-3.13.13`
 
+GitHub Pages is configured for the static project page in `pages/`. GitHub Pages cannot run the Flask API because it does not support Python server-side execution.
+
 Set these environment variables if the hosting platform provides writable storage paths:
 
 - `UPLOAD_FOLDER`

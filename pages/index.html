@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume-To-Rank</title>
+    <style>
+        :root {
+            --background: #f5f7fb;
+            --panel: #ffffff;
+            --border: #d9e1ec;
+            --text: #172033;
+            --muted: #65738a;
+            --primary: #176b87;
+            --accent: #bb6b1d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--background);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.55;
+        }
+
+        main {
+            width: min(960px, 100%);
+            margin: 0 auto;
+            padding: 48px 20px;
+        }
+
+        header {
+            margin-bottom: 28px;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2.2rem, 6vw, 4.6rem);
+            line-height: 1;
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin: 0 0 12px;
+            color: var(--muted);
+        }
+
+        a {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .panel {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--panel);
+            padding: 20px;
+            box-shadow: 0 16px 40px rgba(23, 32, 51, 0.08);
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        code {
+            border-radius: 4px;
+            background: #eef3f8;
+            padding: 2px 5px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        li + li {
+            margin-top: 6px;
+        }
+
+        @media (max-width: 760px) {
+            main {
+                padding: 32px 16px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <p class="eyebrow">Resume-To-Rank</p>
+            <h1>Resume ranking for hiring teams</h1>
+            <p>Upload resumes, parse candidate text, rank candidates by selected skills, sort results, and export a ranked CSV.</p>
+        </header>
+
+        <section class="grid" aria-label="Project hosting information">
+            <article class="panel">
+                <h2>About the app</h2>
+                <ul>
+                    <li>Flask backend with upload, parse, rank, sort, clear, and export endpoints.</li>
+                    <li>Browser UI for uploading TXT, PDF, and DOCX resumes.</li>
+                    <li>Skill criteria can be selected or added directly in the interface.</li>
+                </ul>
+            </article>
+
+            <article class="panel">
+                <h2>Hosting note</h2>
+                <p>GitHub Pages hosts static files only. The live Flask API needs a Python hosting service such as Render, Railway, Fly.io, Azure App Service, or Heroku-compatible hosting.</p>
+            </article>
+
+            <article class="panel full">
+                <h2>Deployment-ready backend</h2>
+                <p>The repository includes production hosting files: <code>wsgi.py</code>, <code>Procfile</code>, <code>runtime.txt</code>, and <code>requirements.txt</code>.</p>
+                <p>Use <code>pip install -r requirements.txt</code> as the build command and <code>gunicorn wsgi:app</code> as the start command on a Python host.</p>
+                <p><a href="https://github.com/ehauser112-cmyk/Resume-To-Rank">View the source on GitHub</a></p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
