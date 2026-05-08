@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local Python runtimes and environments
+.python/
+.python-nuget/
+.venv/
+venv/
+env/
+
+# Local application data
+uploads/
+storage/
+*.log
+
+# IDE/editor state
+.vs/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local environment files
+.env
+.env.*
+!.env.example

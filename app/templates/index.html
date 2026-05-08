@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume to Rank</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="workspace" aria-label="Resume ranking workspace">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">Resume to Rank</p>
+                    <h1>Candidate ranking table</h1>
+                </div>
+                <div class="status-pill" id="statusPill">Ready</div>
+            </header>
+
+            <section class="panel upload-panel" aria-labelledby="upload-title">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="upload-title">Upload resumes</h2>
+                        <p>Drop TXT, PDF, or DOCX resumes, then parse them for ranking.</p>
+                    </div>
+                    <button class="secondary-button" id="clearSelectionButton" type="button">Clear</button>
+                </div>
+
+                <label class="dropzone" id="dropzone" for="resumeFiles">
+                    <input id="resumeFiles" name="files" type="file" multiple accept=".txt,.pdf,.docx">
+                    <span class="dropzone-icon" aria-hidden="true">+</span>
+                    <span class="dropzone-title">Drop resumes here</span>
+                    <span class="dropzone-copy">or choose files from your computer</span>
+                </label>
+
+                <div class="file-list" id="fileList" aria-live="polite">No files selected</div>
+
+                <div class="button-row">
+                    <button id="uploadButton" type="button">Upload</button>
+                    <button id="parseButton" type="button" class="secondary-button">Parse resumes</button>
+                </div>
+            </section>
+
+            <section class="panel controls-panel" aria-labelledby="criteria-title">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="criteria-title">Ranking criteria</h2>
+                        <p>Choose the skills that matter most for this search.</p>
+                    </div>
+                </div>
+
+                <div class="criteria-grid" id="criteriaGrid">
+                    <label><input type="checkbox" value="python"> Python</label>
+                    <label><input type="checkbox" value="sql"> SQL</label>
+                    <label><input type="checkbox" value="aws"> AWS</label>
+                    <label><input type="checkbox" value="leadership"> Leadership</label>
+                    <label><input type="checkbox" value="communication"> Communication</label>
+                    <label><input type="checkbox" value="project management"> Project management</label>
+                </div>
+
+                <div class="custom-criteria">
+                    <label for="customCriteria">New skill</label>
+                    <div class="add-skill-row">
+                        <input id="customCriteria" type="text" placeholder="Example: React">
+                        <button id="addSkillButton" type="button" class="secondary-button">Add skill</button>
+                    </div>
+                </div>
+
+                <div class="button-row">
+                    <button id="rankButton" type="button">Generate ranking</button>
+                    <button id="sortScoreButton" type="button" class="secondary-button">Sort by score</button>
+                    <button id="sortNameButton" type="button" class="secondary-button">Sort by filename</button>
+                    <button id="clearRankingsButton" type="button" class="secondary-button">Clear rankings</button>
+                    <button id="exportButton" type="button" class="secondary-button">Export CSV</button>
+                </div>
+            </section>
+
+            <section class="panel results-panel" aria-labelledby="results-title">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="results-title">Candidates</h2>
+                        <p id="resultsSummary">No candidates ranked yet.</p>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Rank</th>
+                                <th scope="col">Candidate file</th>
+                                <th scope="col">Score</th>
+                                <th scope="col">Matched criteria</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                            <tr>
+                                <td colspan="4" class="empty-state">Upload, parse, and rank resumes to see candidates here.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="message-log" id="messageLog" aria-live="polite" aria-label="Activity log"></section>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
