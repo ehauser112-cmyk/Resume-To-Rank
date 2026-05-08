@@ -1,4 +1,4 @@
-# Resume to Rank
+# Resume-To-Rank
 
 Resume to Rank is a Flask app for uploading resumes, parsing candidate text, ranking candidates by selected skills, sorting the results, and exporting a ranked CSV.
 
